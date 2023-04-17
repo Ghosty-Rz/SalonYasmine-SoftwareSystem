@@ -2,6 +2,8 @@
  
 Making a software system for a beauty salon owner to facilitate the management of the business and solve problems such as crowdness, and inabilityof the owner to always be present in the salon.
 
+you can try the website using this link (URL) : https://ghosty-rz.github.io/SalonYasmine-SoftwareSystem/index.html
+
 Here is a screenshot of how the GUI looks like :
 
 ![image](https://user-images.githubusercontent.com/107633200/232384280-01901b69-786d-41fa-9b09-ad87c3bf57f2.png)
