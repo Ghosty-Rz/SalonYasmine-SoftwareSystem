@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Services</title>
 
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="CSS/serviceStyles.css">
   </head>
   <body>
     <div class="grid-container">
@@ -38,7 +38,8 @@
         <div class="sidebar-title">
           <div class="sidebar-brand">
             <!--<span class="material-icons-outlined">face_2</span> -->
-            <img src="Yasmine-salon-de-beauté.png" alt="">
+            SALON YASMINE
+            <img src="https://alakhawayn365-my.sharepoint.com/:i:/g/personal/r_zouitni_aui_ma/EQ0ZRSEDJ7lKkys5uaOWCu0BgvL87yIw_d-r46HaC_W2lw?e=3sUBcG" alt="">
           </div>
           <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
         </div>
@@ -92,53 +93,59 @@
       <!-- Main -->
       <main class="main-container">
         <div class="main-title">
-          <h2>DASHBOARD</h2>
+          <h2>SERVICES</h2>
         </div>
 
-        <div class="main-cards">
+        <div class="service-grid">
+          <div class="Services">
+              <div class="card">
+                  <div class="card-header">
+                      <h3>All Services</h3>
+                      <button type="button">Add New</button>
+                  </div>
+      
+                  <div class="card-body">
+                      <table width="100%">
+                        <thead>
+                          <tr>
+                            <td>Service Name</td>
+                            <td>Prix</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Brushing droit</td>
+                            <td>40 Dh</td>
+                            <td> <button type="button">View</button></td>
+                            <td> <button type="button">Edit</button></td>
+                          </tr>
 
-          <div class="card">
-            <div class="card-inner">
-              <h3>PRODUCTS</h3>
-              <span class="material-icons-outlined">inventory_2</span>
-            </div>
-            <h1>249</h1>
+                          <tr>
+                            <td>Brushing boucle</td>
+                            <td>50 Dh</td>
+                            <td> <button type="button">View</button></td>
+                            <td> <button type="button">Edit</button></td>
+                          </tr>
+
+                          <tr>
+                            <td>Manicure Permanente</td>
+                            <td>100 Dh</td>
+                            <td> <button type="button">View</button></td>
+                            <td> <button type="button">Edit</button></td>
+                          </tr>
+
+                          <tr>
+                            <td>Manicure Normale</td>
+                            <td>60 Dh</td>
+                            <td> <button type="button">View</button></td>
+                            <td> <button type="button">Edit</button></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+              </div>
           </div>
-
-          <div class="card">
-            <div class="card-inner">
-              <h3>SERVICES</h3>
-              <span class="material-icons-outlined">category</span>
-            </div>
-            <h1>25</h1>
-          </div>
-
-          <div class="card">
-            <div class="card-inner">
-              <h3>EMPLOYEES</h3>
-              <span class="material-icons-outlined">group</span>
-            </div>
-            <h1>15</h1>
-          </div>
-
-          <div class="card">
-            <div class="card-inner">
-              <h3>FINANCE</h3>
-              <span class="material-icons-outlined">poll</span>
-            </div>
-            <h1>__</h1>
-          </div>
-
-        </div>
-
-        <div class="charts">
-
-          <div class="charts-card">
-            <h2 class="chart-title">Top 5 Services</h2>
-            <div id="bar-chart"></div>
-          </div>
-
-        </div>
+      </div>
       </main>
       <!-- End Main -->
 
