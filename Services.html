@@ -101,7 +101,37 @@
               <div class="card">
                   <div class="card-header">
                       <h3>All Services</h3>
-                      <button type="button">Add New</button>
+
+                      <div class="Box">
+                        <a href="#divOne" class="button">Add New</a>
+                      </div>
+
+                      <div class="overlay" id="divOne">
+                        <div class="wrapper">
+                          <h2>Please Fill up the Form</h2>
+                          <a href="#" class="close">&times;</a>
+                          <div class="content">
+                            <div class="container">
+                              <form>
+                                <label>Service Name</label>
+                                <input type="text">
+                                <label>Service Description</label>
+                                <textarea></textarea>
+                                <label>Service Price</label>
+                                <input type="number">
+                                <label>Category</label>
+                                <input type="text">
+                                <label>Duration</label>
+                                <input type="number" placeholder="Please enter the time this service takes in minutes">
+                                <label>Employee's wage percentage</label>
+                                <input type="number" placeholder="Please enter the employee's percentage from this service">
+                                <input type="submit" value="Submit">
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
                   </div>
       
                   <div class="card-body">

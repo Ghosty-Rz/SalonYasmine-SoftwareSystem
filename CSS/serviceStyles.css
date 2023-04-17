@@ -163,17 +163,109 @@ card-body {
 
 .card-header {
     display: flex;
+    color: #BF0E7E;
     justify-content: space-between;
     align-items: center;
 }
 
-.card-header button {
+.Box {
+    text-align: right;
+}
+
+.button {
     background-color: #BF0E7E;
     border-radius: 7px;
     color: #ffffff;
-    font-size: .8rem;
+    font-size: 1rem;
     padding: .5rem 1rem;
 }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    transition: opacity 500ms;
+    visibility: hidden;
+}
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.wrapper {
+    margin: 70px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    transition: all 2s ease-in-out;
+}
+
+.wrapper h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.wrapper .close{
+    position:absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+}
+
+.wrapper .content {
+    max-height: 30%;
+    overflow: auto;
+}
+
+.container{
+    border-radius: 5px;
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+
+input[type=text], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type=number] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+input[type="Submit"] {
+    background-color: #BF0E7E;
+    color: #ffffff;
+    padding: 15px 50px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
 
 table {
     border-collapse: collapse;
@@ -191,3 +283,4 @@ thead td {
 td {
     padding: .5rem 1rem;
 }
+
