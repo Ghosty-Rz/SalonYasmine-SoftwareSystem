@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="CSS/serviceStyles.css">
+    <link rel="stylesheet" href="CSS/appointmentStyles.css">
   </head>
   <body>
     <div class="grid-container">
@@ -93,16 +93,17 @@
       <!-- Main -->
       <main class="main-container">
         <div class="main-title">
-          <h2>SERVICES</h2>
+          <h2>Appointments</h2>
         </div>
 
         <div class="service-grid">
           <div class="Services">
               <div class="card">
                   <div class="card-header">
-                      <h3>All Services</h3>
+                      <h3>All Appointments</h3>
+                      <h4>This week</h4>
 
-                      <div class="Box">
+                      <!--<div class="Box">
                         <a href="#divOne" class="button">Add New</a>
                       </div>
 
@@ -130,7 +131,7 @@
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div>-->
                       
                   </div>
       
@@ -138,38 +139,44 @@
                       <table width="100%">
                         <thead>
                           <tr>
-                            <td>Service Name</td>
-                            <td>Prix</td>
+                            <td>Appointment_ID</td>
+                            <td>Customer</td>
+                            <td>Date</td>
+                            <td>Time</td>
+                            <td>Price</td>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td>Brushing droit</td>
+                            <td>008</td>
+                            <td>Alae Masdi</td>
+                            <td>4/20/13</td>
+                            <td>14:00</td>
+                            <td>60 Dh</td>
+                            <td> <button type="button">View</button></td>
+                            <td> <button type="button">Edit</button></td>
+                          </tr>
+
+                          <tr>
+                            <td>009</td>
+                            <td>Malak Salim</td>
+                            <td>4/21/13</td>
+                            <td>10h00</td>
+                            <td>80 Dh</td>
+                            <td> <button type="button">View</button></td>
+                            <td> <button type="button">Edit</button></td>
+                          </tr>
+
+                          <tr>
+                            <td>0010</td>
+                            <td>Aya hafit</td>
+                            <td>4/21/13</td>
+                            <td>09h00</td>
                             <td>40 Dh</td>
                             <td> <button type="button">View</button></td>
                             <td> <button type="button">Edit</button></td>
                           </tr>
 
-                          <tr>
-                            <td>Brushing boucle</td>
-                            <td>50 Dh</td>
-                            <td> <button type="button">View</button></td>
-                            <td> <button type="button">Edit</button></td>
-                          </tr>
-
-                          <tr>
-                            <td>Manicure Permanente</td>
-                            <td>100 Dh</td>
-                            <td> <button type="button">View</button></td>
-                            <td> <button type="button">Edit</button></td>
-                          </tr>
-
-                          <tr>
-                            <td>Manicure Normale</td>
-                            <td>60 Dh</td>
-                            <td> <button type="button">View</button></td>
-                            <td> <button type="button">Edit</button></td>
-                          </tr>
                         </tbody>
                       </table>
                   </div>
