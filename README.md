@@ -16,6 +16,7 @@ How to run the website:
 2 -Open it with VScode
 3 -install "live server" if not already installed
 ![image](https://user-images.githubusercontent.com/107633200/232384882-81c6fa0d-c930-4f1a-841d-a031dad3b1fd.png)
+
 4 -run it on the web by clicking here:
 ![image](https://user-images.githubusercontent.com/107633200/232386490-95b40604-670b-4f59-a51a-e9f71a0b6e1a.png)
 
