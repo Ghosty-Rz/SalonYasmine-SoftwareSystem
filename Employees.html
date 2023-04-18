@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="CSS/serviceStyles.css">
+    <link rel="stylesheet" href="CSS/employeeStyles.css">
   </head>
   <body>
     <div class="grid-container">
@@ -93,14 +93,14 @@
       <!-- Main -->
       <main class="main-container">
         <div class="main-title">
-          <h2>SERVICES</h2>
+          <h2>Appointments</h2>
         </div>
 
         <div class="service-grid">
           <div class="Services">
               <div class="card">
                   <div class="card-header">
-                      <h3>All Services</h3>
+                      <h3>All Employees</h3>
 
                       <div class="Box">
                         <a href="#divOne" class="button">Add New</a>
@@ -108,23 +108,22 @@
 
                       <div class="overlay" id="divOne">
                         <div class="wrapper">
-                          <h2>New Service Form</h2>
+                          <h2>New Employee</h2>
                           <a href="#" class="close">&times;</a>
                           <div class="content">
                             <div class="container">
                               <form>
-                                <label>Service Name</label>
+                                <label>First Name</label>
                                 <input type="text">
-                                <label>Service Description</label>
-                                <textarea></textarea>
-                                <label>Service Price</label>
+                                <label>Last Name</label>
+                                <input type="text">
+                                <label>Phone Number</label>
                                 <input type="number">
-                                <label>Category</label>
+                                <label>Date of birth</label>
                                 <input type="text">
-                                <label>Duration</label>
-                                <input type="number" placeholder="Please enter the time this service takes in minutes">
-                                <label>Employee's wage percentage</label>
-                                <input type="number" placeholder="Please enter the employee's percentage from this service">
+                                <label>Status</label>
+                                <input type="text">
+                                
                                 <input type="submit" value="Create">
                               </form>
                             </div>
@@ -138,38 +137,52 @@
                       <table width="100%">
                         <thead>
                           <tr>
-                            <td>Service Name</td>
-                            <td>Prix</td>
+                            <td>Employee_ID</td>
+                            <td>Employee Name</td>
+                            <td>Status</td>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td>Brushing droit</td>
-                            <td>40 Dh</td>
+                            <td>001</td>
+                            <td>Fatima messine</td>
+                            <td>employee</td>
                             <td> <button type="button">View</button></td>
                             <td> <button type="button">Edit</button></td>
                           </tr>
 
                           <tr>
-                            <td>Brushing boucle</td>
-                            <td>50 Dh</td>
+                            <td>002</td>
+                            <td>Salima moulid</td>
+                            <td>Stagiaire</td>
                             <td> <button type="button">View</button></td>
                             <td> <button type="button">Edit</button></td>
                           </tr>
 
                           <tr>
-                            <td>Manicure Permanente</td>
-                            <td>100 Dh</td>
+                            <td>003</td>
+                            <td>Sanae hahia</td>
+                            <td>employee</td>
                             <td> <button type="button">View</button></td>
                             <td> <button type="button">Edit</button></td>
                           </tr>
 
                           <tr>
-                            <td>Manicure Normale</td>
-                            <td>60 Dh</td>
+                            <td>004</td>
+                            <td>halima fatine</td>
+                            <td>employee</td>
                             <td> <button type="button">View</button></td>
                             <td> <button type="button">Edit</button></td>
                           </tr>
+
+                          <tr>
+                            <td>005</td>
+                            <td>basma awail</td>
+                            <td>Stagiaire</td>
+                            <td> <button type="button">View</button></td>
+                            <td> <button type="button">Edit</button></td>
+                          </tr>
+
                         </tbody>
                       </table>
                   </div>
