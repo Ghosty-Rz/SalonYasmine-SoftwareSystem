@@ -1,7 +1,7 @@
 # SalonYasmine-SoftwareSystem
  
 Making a software system for a beauty salon owner to facilitate the management of the business and solve problems such as crowdness, and inabilityof the owner to always be present in the salon.
-This is the owner's view with the dasboard, services, appointments, employess,...
+This is the owner's view with the dasboard, services, appointments, employess,... with popup forms
 
 you can try the website using this link (URL) : https://ghosty-rz.github.io/SalonYasmine-SoftwareSystem/index.html
 
