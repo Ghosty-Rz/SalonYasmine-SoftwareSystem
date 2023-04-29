@@ -155,24 +155,31 @@ function closeSidebar() {
   // Your code for closing the sidebar
 }
 
-document.getElementById('newServiceForm').addEventListener('submit', (event) => {
-  event.preventDefault();
+// ... (previous code)
 
-  const formData = new FormData(event.target);
-  const newService = {
-    serviceName: formData.get('serviceName'),
-    serviceDescription: formData.get('serviceDescription'),
-    servicePrice: formData.get('servicePrice'),
-    serviceCategory: formData.get('serviceCategory'),
-    serviceDuration: formData.get('serviceDuration'),
-    servicePercentage: formData.get('servicePercentage')
-  };
+function initializeForm() {
+  document.getElementById('newServiceForm').addEventListener('submit', (event) => {
+    event.preventDefault();
 
-  database.ref('/services').push(newService).then(() => {
-    console.log('Service added successfully');
-    event.target.reset();
-  }).catch((error) => {
-    console.error('Failed to add service:', error);
+    const formData = new FormData(event.target);
+    const newService = {
+      serviceName: formData.get('serviceName'),
+      serviceDescription: formData.get('serviceDescription'),
+      servicePrice: formData.get('servicePrice'),
+      serviceCategory: formData.get('serviceCategory'),
+      serviceDuration: formData.get('serviceDuration'),
+      servicePercentage: formData.get('servicePercentage')
+    };
+
+    database.ref('/services').push(newService).then(() => {
+      console.log('Service added successfully');
+      event.target.reset();
+    }).catch((error) => {
+      console.error('Failed to add service:', error);
+    });
   });
-});
+}
+
+document.addEventListener('DOMContentLoaded', initializeForm);
+
 
