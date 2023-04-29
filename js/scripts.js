@@ -133,18 +133,18 @@ var barChartOptions = {
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCO6r3g8WJ6DKDGRJ_zPQyGF5Jw4EoQcLo",
-        authDomain: "salonyas-48030.firebaseapp.com",
-        databaseURL: "https://salonyas-48030-default-rtdb.firebaseio.com",
-        projectId: "salonyas-48030",
-        storageBucket: "salonyas-48030.appspot.com",
-        messagingSenderId: "859006398884",
-        appId: "1:859006398884:web:d4c8391436e23d38085131",
-        measurementId: "G-H4NX84ZHCL"
+  authDomain: "salonyas-48030.firebaseapp.com",
+  databaseURL: "https://salonyas-48030-default-rtdb.firebaseio.com",
+  projectId: "salonyas-48030",
+  storageBucket: "salonyas-48030.appspot.com",
+  messagingSenderId: "859006398884",
+  appId: "1:859006398884:web:d4c8391436e23d38085131",
+  measurementId: "G-H4NX84ZHCL"
 };
 
 // Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const database = app.database();
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
 
 // Add openSidebar and closeSidebar functions if they were in the original script.js file
 function openSidebar() {
@@ -155,9 +155,6 @@ function closeSidebar() {
   // Your code for closing the sidebar
 }
 
-var barChart = new ApexCharts(document.querySelector("#bar-chart"), barChartOptions);
-barChart.render();
-
 document.getElementById('newServiceForm').addEventListener('submit', (event) => {
   event.preventDefault();
 
@@ -165,10 +162,10 @@ document.getElementById('newServiceForm').addEventListener('submit', (event) => 
   const newService = {
     serviceName: formData.get('serviceName'),
     serviceDescription: formData.get('serviceDescription'),
-    servicePrice: parseFloat(formData.get('servicePrice')),
+    servicePrice: formData.get('servicePrice'),
     serviceCategory: formData.get('serviceCategory'),
-    serviceDuration: parseInt(formData.get('serviceDuration')),
-    servicePercentage: parseFloat(formData.get('servicePercentage'))
+    serviceDuration: formData.get('serviceDuration'),
+    servicePercentage: formData.get('servicePercentage')
   };
 
   database.ref('/services').push(newService).then(() => {
@@ -178,3 +175,4 @@ document.getElementById('newServiceForm').addEventListener('submit', (event) => 
     console.error('Failed to add service:', error);
   });
 });
+
