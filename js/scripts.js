@@ -134,3 +134,21 @@ var barChart = new ApexCharts(document.querySelector("#bar-chart"), barChartOpti
 barChart.render();
 
 
+
+  document.getElementById('newServiceForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    const formData = new FormData(event.target);
+    const newService = {
+      serviceName: formData.get('serviceName'),
+      // ... add other fields here
+    };
+
+    database.ref('/services').push(newService).then(() => {
+      console.log('Service added successfully');
+      event.target.reset();
+    }).catch((error) => {
+      console.error('Failed to add service:', error);
+    });
+  });
+
