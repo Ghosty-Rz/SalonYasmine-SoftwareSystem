@@ -164,7 +164,11 @@ document.getElementById('newServiceForm').addEventListener('submit', (event) => 
   const formData = new FormData(event.target);
   const newService = {
     serviceName: formData.get('serviceName'),
-    // ... add other fields here
+    serviceDescription: formData.get('serviceDescription'),
+    servicePrice: parseFloat(formData.get('servicePrice')),
+    serviceCategory: formData.get('serviceCategory'),
+    serviceDuration: parseInt(formData.get('serviceDuration')),
+    servicePercentage: parseFloat(formData.get('servicePercentage'))
   };
 
   database.ref('/services').push(newService).then(() => {
