@@ -156,6 +156,46 @@ function closeSidebar() {
 }
 
 // ... (previous code)
+function fetchServices() {
+  const servicesTableBody = document.querySelector('#services-table tbody');
+  
+  database.ref('/services').on('value', (snapshot) => {
+    servicesTableBody.innerHTML = ''; // Clear the existing table content
+
+    snapshot.forEach((childSnapshot) => {
+      const service = childSnapshot.val();
+      
+      // Create a new table row
+      const row = document.createElement('tr');
+
+      // Add service name
+      const nameCell = document.createElement('td');
+      nameCell.textContent = service.serviceName;
+      row.appendChild(nameCell);
+
+      // Add service price
+      const priceCell = document.createElement('td');
+      priceCell.textContent = service.servicePrice + ' Dh';
+      row.appendChild(priceCell);
+
+      // Add view and edit buttons
+      const viewCell = document.createElement('td');
+      const viewButton = document.createElement('button');
+      viewButton.textContent = 'View';
+      viewCell.appendChild(viewButton);
+      row.appendChild(viewCell);
+
+      const editCell = document.createElement('td');
+      const editButton = document.createElement('button');
+      editButton.textContent = 'Edit';
+      editCell.appendChild(editButton);
+      row.appendChild(editCell);
+
+      // Add the row to the table
+      servicesTableBody.appendChild(row);
+    });
+  });
+}
 
 function initializeForm() {
   document.getElementById('newServiceForm').addEventListener('submit', (event) => {
@@ -178,8 +218,44 @@ function initializeForm() {
       console.error('Failed to add service:', error);
     });
   });
+  fetchServices();
 }
+
 
 document.addEventListener('DOMContentLoaded', initializeForm);
 
+// ... (the rest of your scripts.js code)
+
+// Fetching services from the Firebase Realtime Database
+database.ref('/services').on('value', (snapshot) => {
+  const servicesTable = document.getElementById('services-table');
+  const servicesList = snapshot.val();
+  let tableBodyContent = '';
+
+  for (const key in servicesList) {
+    const service = servicesList[key];
+    tableBodyContent += `
+      <tr>
+        <td>${service.serviceName}</td>
+        <td>${service.servicePrice} Dh</td>
+        <td><button type="button" onclick="viewService('${key}')">View</button></td>
+        <td><button type="button" onclick="editService('${key}')">Edit</button></td>
+      </tr>
+    `;
+  }
+
+  servicesTable.querySelector('tbody').innerHTML = tableBodyContent;
+});
+
+// Function to handle View button click
+function viewService(serviceKey) {
+  console.log('Viewing service with key:', serviceKey);
+  // Add your code to view the service details
+}
+
+// Function to handle Edit button click
+function editService(serviceKey) {
+  console.log('Editing service with key:', serviceKey);
+  // Add your code to edit the service details
+}
 
