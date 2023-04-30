@@ -146,16 +146,16 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
-function fetchServices() {
+function fetchData() {
   const servicesTableBody = document.querySelector('#services-table tbody');
-  
+
   database.ref('/services').on('value', (snapshot) => {
     servicesTableBody.innerHTML = ''; // Clear the existing table content
 
     snapshot.forEach((childSnapshot) => {
       const service = childSnapshot.val();
       const serviceKey = childSnapshot.key;
-      
+
       // Create a new table row
       const row = document.createElement('tr');
 
@@ -173,14 +173,14 @@ function fetchServices() {
       const viewCell = document.createElement('td');
       const viewButton = document.createElement('button');
       viewButton.textContent = 'View';
-      viewButton.addEventListener('click', () => viewService(serviceKey));
+      viewButton.addEventListener('click', () => viewData(serviceKey));
       viewCell.appendChild(viewButton);
       row.appendChild(viewCell);
 
       const editCell = document.createElement('td');
       const editButton = document.createElement('button');
       editButton.textContent = 'Edit';
-      editButton.addEventListener('click', () => editService(serviceKey));
+      editButton.addEventListener('click', () => editData(serviceKey, /* pass the updated data object here */));
       editCell.appendChild(editButton);
       row.appendChild(editCell);
 
@@ -204,27 +204,32 @@ function initializeForm() {
       servicePercentage: formData.get('servicePercentage')
     };
 
-    database.ref('/services').push(newService).then(() => {
-      console.log('Service added successfully');
-      event.target.reset();
-    }).catch((error) => {
-      console.error('Failed to add service:', error);
-    });
+    addData(newService);
+    event.target.reset();
   });
-  fetchServices();
 }
 
-document.addEventListener('DOMContentLoaded', initializeForm);
+document.addEventListener('DOMContentLoaded', () => {
+  initializeForm();
+  fetchData();
+});
 
-// Function to handle View button click
-function viewService(serviceKey) {
-  console.log('Viewing service with key:', serviceKey);
-  // Add your code to view the service details
+function addData(newData) {
+  database.ref('/services').push(newData);
 }
 
-// Function to handle Edit button click
-function editService(serviceKey) {
-  console.log('Editing service with key:', serviceKey);
-  // Add your code to edit the service details
+function viewData(key) {
+  database.ref('/services/' + key).once('value').then((snapshot) => {
+    const service = snapshot.val();
+    console.log('Service details:', service);
+    // Display the service details in a modal or on a new page
+  });
 }
 
+function editData(key, updatedData) {
+  database.ref('/services/' + key).update(updatedData);
+}
+
+function removeData(key) {
+  database.ref('/services/' + key).remove();
+}
