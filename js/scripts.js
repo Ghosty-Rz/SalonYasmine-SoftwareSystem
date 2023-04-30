@@ -146,47 +146,53 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
-function fetchData() {
+function fetchServices() {
   const servicesTableBody = document.querySelector('#services-table tbody');
-
+  
   database.ref('/services').on('value', (snapshot) => {
     servicesTableBody.innerHTML = ''; // Clear the existing table content
 
-    snapshot.forEach((childSnapshot) => {
-      const service = childSnapshot.val();
-      const serviceKey = childSnapshot.key;
+    if (snapshot.exists()) {
+      snapshot.forEach((childSnapshot) => {
+        const service = childSnapshot.val();
+        const serviceKey = childSnapshot.key;
+        
+        // Create a new table row
+        const row = document.createElement('tr');
 
-      // Create a new table row
-      const row = document.createElement('tr');
+        // Add service name
+        const nameCell = document.createElement('td');
+        nameCell.textContent = service.serviceName;
+        row.appendChild(nameCell);
 
-      // Add service name
-      const nameCell = document.createElement('td');
-      nameCell.textContent = service.serviceName;
-      row.appendChild(nameCell);
+        // Add service price
+        const priceCell = document.createElement('td');
+        priceCell.textContent = service.servicePrice + ' Dh';
+        row.appendChild(priceCell);
 
-      // Add service price
-      const priceCell = document.createElement('td');
-      priceCell.textContent = service.servicePrice + ' Dh';
-      row.appendChild(priceCell);
+        // Add view and edit buttons
+        const viewCell = document.createElement('td');
+        const viewButton = document.createElement('button');
+        viewButton.textContent = 'View';
+        viewButton.addEventListener('click', () => viewService(serviceKey));
+        viewCell.appendChild(viewButton);
+        row.appendChild(viewCell);
 
-      // Add view and edit buttons
-      const viewCell = document.createElement('td');
-      const viewButton = document.createElement('button');
-      viewButton.textContent = 'View';
-      viewButton.addEventListener('click', () => viewData(serviceKey));
-      viewCell.appendChild(viewButton);
-      row.appendChild(viewCell);
+        const editCell = document.createElement('td');
+        const editButton = document.createElement('button');
+        editButton.textContent = 'Edit';
+        editButton.addEventListener('click', () => editService(serviceKey));
+        editCell.appendChild(editButton);
+        row.appendChild(editCell);
 
-      const editCell = document.createElement('td');
-      const editButton = document.createElement('button');
-      editButton.textContent = 'Edit';
-      editButton.addEventListener('click', () => editData(serviceKey, /* pass the updated data object here */));
-      editCell.appendChild(editButton);
-      row.appendChild(editCell);
-
-      // Add the row to the table
-      servicesTableBody.appendChild(row);
-    });
+        // Add the row to the table
+        servicesTableBody.appendChild(row);
+      });
+    } else {
+      console.log('No data in the /services node.');
+    }
+  }, (error) => {
+    console.error('Error fetching data:', error);
   });
 }
 
@@ -204,32 +210,28 @@ function initializeForm() {
       servicePercentage: formData.get('servicePercentage')
     };
 
-    addData(newService);
-    event.target.reset();
+    database.ref('/services').push(newService).then(() => {
+      console.log('Service added successfully');
+      event.target.reset();
+    }).catch((error) => {
+      console.error('Failed to add service:', error);
+    });
   });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   initializeForm();
-  fetchData();
+  fetchServices();
 });
 
-function addData(newData) {
-  database.ref('/services').push(newData);
+// Function to handle View button click
+function viewService(serviceKey) {
+  console.log('Viewing service with key:', serviceKey);
+  // Add your code to view the service details
 }
 
-function viewData(key) {
-  database.ref('/services/' + key).once('value').then((snapshot) => {
-    const service = snapshot.val();
-    console.log('Service details:', service);
-    // Display the service details in a modal or on a new page
-  });
-}
-
-function editData(key, updatedData) {
-  database.ref('/services/' + key).update(updatedData);
-}
-
-function removeData(key) {
-  database.ref('/services/' + key).remove();
+// Function to handle Edit button click
+function editService(serviceKey) {
+  console.log('Editing service with key:', serviceKey);
+  // Add your code to edit
 }
