@@ -146,16 +146,6 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
-// Add openSidebar and closeSidebar functions if they were in the original script.js file
-function openSidebar() {
-  // Your code for opening the sidebar
-}
-
-function closeSidebar() {
-  // Your code for closing the sidebar
-}
-
-// ... (previous code)
 function fetchServices() {
   const servicesTableBody = document.querySelector('#services-table tbody');
   
@@ -164,6 +154,7 @@ function fetchServices() {
 
     snapshot.forEach((childSnapshot) => {
       const service = childSnapshot.val();
+      const serviceKey = childSnapshot.key;
       
       // Create a new table row
       const row = document.createElement('tr');
@@ -182,12 +173,14 @@ function fetchServices() {
       const viewCell = document.createElement('td');
       const viewButton = document.createElement('button');
       viewButton.textContent = 'View';
+      viewButton.addEventListener('click', () => viewService(serviceKey));
       viewCell.appendChild(viewButton);
       row.appendChild(viewCell);
 
       const editCell = document.createElement('td');
       const editButton = document.createElement('button');
       editButton.textContent = 'Edit';
+      editButton.addEventListener('click', () => editService(serviceKey));
       editCell.appendChild(editButton);
       row.appendChild(editCell);
 
@@ -221,31 +214,7 @@ function initializeForm() {
   fetchServices();
 }
 
-
 document.addEventListener('DOMContentLoaded', initializeForm);
-
-// ... (the rest of your scripts.js code)
-
-// Fetching services from the Firebase Realtime Database
-database.ref('/services').on('value', (snapshot) => {
-  const servicesTable = document.getElementById('services-table');
-  const servicesList = snapshot.val();
-  let tableBodyContent = '';
-
-  for (const key in servicesList) {
-    const service = servicesList[key];
-    tableBodyContent += `
-      <tr>
-        <td>${service.serviceName}</td>
-        <td>${service.servicePrice} Dh</td>
-        <td><button type="button" onclick="viewService('${key}')">View</button></td>
-        <td><button type="button" onclick="editService('${key}')">Edit</button></td>
-      </tr>
-    `;
-  }
-
-  servicesTable.querySelector('tbody').innerHTML = tableBodyContent;
-});
 
 // Function to handle View button click
 function viewService(serviceKey) {
