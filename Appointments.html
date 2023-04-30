@@ -82,119 +82,83 @@
           </li>
           <li class="sidebar-list-item">
             <a href="#" >
-              <span class="material-icons-outlined">poll</span> Finance
+            <span class="material-icons-outlined">poll</span> Finance
             </a>
-          </li>
-          
-        </ul>
-      </aside>
-      <!-- End Sidebar -->
-
-      <!-- Main -->
-      <main class="main-container">
-        <div class="main-title">
-          <h2>Appointments</h2>
-        </div>
-
-        <div class="service-grid">
-          <div class="Services">
-              <div class="card">
-                  <div class="card-header">
-                      <h3>All Appointments</h3>
-                      <h4>This week</h4>
-
-                      <!--<div class="Box">
-                        <a href="#divOne" class="button">Add New</a>
-                      </div>
-
-                      <div class="overlay" id="divOne">
-                        <div class="wrapper">
-                          <h2>New Service Form</h2>
-                          <a href="#" class="close">&times;</a>
-                          <div class="content">
-                            <div class="container">
-                              <form>
-                                <label>Service Name</label>
-                                <input type="text">
-                                <label>Service Description</label>
-                                <textarea></textarea>
-                                <label>Service Price</label>
-                                <input type="number">
-                                <label>Category</label>
-                                <input type="text">
-                                <label>Duration</label>
-                                <input type="number" placeholder="Please enter the time this service takes in minutes">
-                                <label>Employee's wage percentage</label>
-                                <input type="number" placeholder="Please enter the employee's percentage from this service">
-                                <input type="submit" value="Create">
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>-->
-                      
-                  </div>
+            </li>
+          </ul>
+        </aside>
+        <!-- End Sidebar -->
       
-                  <div class="card-body">
-                      <table width="100%">
-                        <thead>
-                          <tr>
-                            <td>Appointment_ID</td>
-                            <td>Customer</td>
-                            <td>Date</td>
-                            <td>Time</td>
-                            <td>Price</td>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>008</td>
-                            <td>Alae Masdi</td>
-                            <td>4/20/13</td>
-                            <td>14:00</td>
-                            <td>60 Dh</td>
-                            <td> <button type="button">View</button></td>
-                            <td> <button type="button">Edit</button></td>
-                          </tr>
-
-                          <tr>
-                            <td>009</td>
-                            <td>Malak Salim</td>
-                            <td>4/21/13</td>
-                            <td>10h00</td>
-                            <td>80 Dh</td>
-                            <td> <button type="button">View</button></td>
-                            <td> <button type="button">Edit</button></td>
-                          </tr>
-
-                          <tr>
-                            <td>0010</td>
-                            <td>Aya hafit</td>
-                            <td>4/21/13</td>
-                            <td>09h00</td>
-                            <td>40 Dh</td>
-                            <td> <button type="button">View</button></td>
-                            <td> <button type="button">Edit</button></td>
-                          </tr>
-
-                        </tbody>
-                      </table>
-                  </div>
-              </div>
+        <!-- Main -->
+        <main class="main-container">
+          <div class="main-title">
+            <h2>Appointments</h2>
           </div>
+      
+          <div class="service-grid">
+            <div class="Services">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>All Appointments</h3>
+                        <h4>This week</h4>
+                    </div>
+        
+                    <div class="card-body">
+                        <table width="100%" id="appointments-table">
+                          <thead>
+                            <tr>
+                              <td>Appointment_ID</td>
+                              <td>Customer</td>
+                              <td>Date</td>
+                              <td>Time</td>
+                              <td>Price</td>
+                              <td>Action</td>
+                              <td>Action</td>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          </tbody>
+                        </table>
+      
+                        <!-- Add New Appointment Button -->
+                        <button type="button" onclick="document.getElementById('addAppointmentForm').style.display='block'">Add New Appointment</button>
+      
+                        <!-- Add New Appointment Form -->
+                        <div id="addAppointmentForm" style="display:none">
+                          <h3>Add New Appointment</h3>
+                          <form onsubmit="event.preventDefault(); addAppointment();">
+                            <label for="appointmentId">Appointment ID:</label>
+                            <input type="text" id="appointmentId" required><br>
+                            <label for="customer">Customer:</label>
+                            <input type="text" id="customer" required><br>
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" required><br>
+                            <label for="time">Time:</label>
+                            <input type="time" id="time" required><br>
+                            <label for="price">Price:</label>
+                            <input type="number" id="price" required><br>
+                            <button type="submit">Add Appointment</button>
+                          </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </main>
+        <!-- End Main -->
+      
       </div>
-      </main>
-      <!-- End Main -->
-
-    </div>
-
-    <!-- Scripts -->
-    <!-- ApexCharts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
-
-
-    <!-- Custom JS -->
-    <script src="js/scripts.js"></script>
-  </body>
-</html>
-
+      
+      <!-- Scripts -->
+      <!-- Firebase -->
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+      
+      <!-- ApexCharts -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+      
+      <!-- Custom JS -->
+      <script src="js/scripts.js"></script>
+      
+    </body>
+    </html>      

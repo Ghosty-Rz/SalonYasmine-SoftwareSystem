@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Services</title>
+    <title>Employees</title>
 
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,6 +13,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="CSS/employeeStyles.css">
+   
   </head>
   <body>
     <div class="grid-container">
@@ -81,126 +82,74 @@
             </a>
           </li>
           <li class="sidebar-list-item">
-            <a href="#">
-              <span class="material-icons-outlined">poll</span> Finance
+            <a href="#" >
+            <span class="material-icons-outlined">poll</span> Finance
             </a>
-          </li>
-          
-        </ul>
-      </aside>
+            </li>
+          </ul>
+        </aside>
       <!-- End Sidebar -->
 
       <!-- Main -->
       <main class="main-container">
         <div class="main-title">
-          <h2>Appointments</h2>
+          <h2>Employees</h2>
         </div>
 
-        <div class="service-grid">
-          <div class="Services">
+        <div class="employee-grid">
+          <div class="Employees">
               <div class="card">
                   <div class="card-header">
                       <h3>All Employees</h3>
-
-                      <div class="Box">
-                        <a href="#divOne" class="button">Add New</a>
-                      </div>
-
-                      <div class="overlay" id="divOne">
-                        <div class="wrapper">
-                          <h2>New Employee</h2>
-                          <a href="#" class="close">&times;</a>
-                          <div class="content">
-                            <div class="container">
-                              <form>
-                                <label>First Name</label>
-                                <input type="text">
-                                <label>Last Name</label>
-                                <input type="text">
-                                <label>Phone Number</label>
-                                <input type="number">
-                                <label>Date of birth</label>
-                                <input type="text">
-                                <label>Status</label>
-                                <input type="text">
-                                
-                                <input type="submit" value="Create">
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      
                   </div>
       
                   <div class="card-body">
-                      <table width="100%">
+                      <table width="100%" id="employees-table">
                         <thead>
                           <tr>
                             <td>Employee_ID</td>
                             <td>Employee Name</td>
                             <td>Status</td>
+                            <td>Action</td>
+                            <td>Action</td>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>001</td>
-                            <td>Fatima messine</td>
-                            <td>employee</td>
-                            <td> <button type="button">View</button></td>
-                            <td> <button type="button">Edit</button></td>
-                          </tr>
-
-                          <tr>
-                            <td>002</td>
-                            <td>Salima moulid</td>
-                            <td>Stagiaire</td>
-                            <td> <button type="button">View</button></td>
-                            <td> <button type="button">Edit</button></td>
-                          </tr>
-
-                          <tr>
-                            <td>003</td>
-                            <td>Sanae hahia</td>
-                            <td>employee</td>
-                            <td> <button type="button">View</button></td>
-                            <td> <button type="button">Edit</button></td>
-                          </tr>
-
-                          <tr>
-                            <td>004</td>
-                            <td>halima fatine</td>
-                            <td>employee</td>
-                            <td> <button type="button">View</button></td>
-                            <td> <button type="button">Edit</button></td>
-                          </tr>
-
-                          <tr>
-                            <td>005</td>
-                            <td>basma awail</td>
-                            <td>Stagiaire</td>
-                            <td> <button type="button">View</button></td>
-                            <td> <button type="button">Edit</button></td>
-                          </tr>
-
                         </tbody>
                       </table>
+
+                      <!-- Add New Employee Button -->
+                      <button type="button" onclick="document.getElementById('addEmployeeForm').style.display='block'">Add New Employee</button>
+
+                      <!-- Add New Employee Form -->
+                      <div id="addEmployeeForm" style="display:none">
+                        <h3>Add New Employee</h3>
+                        <form onsubmit="event.preventDefault(); addEmployee();">
+                          <label for="employeeId">Employee ID:</label>
+                          <input type="text" id="employeeId" required><br>
+                          <label for="employeeName">Employee Name:</label>
+                          <input type="text" id="employeeName" required><br>
+                          <label for="status">Status:</label>
+                          <select id="status" required>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                          </select><br>
+                          <button type="submit">Add Employee</button>
+                        </form>
+                      </div>
                   </div>
               </div>
           </div>
       </div>
       </main>
-      <!-- End Main -->
-
     </div>
 
     <!-- Scripts -->
-    <!-- ApexCharts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
-
-
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+   
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <!-- Custom JS -->
-    <script src="js/scripts.js"></script>
+    <script src="js/employee.js"></script>
   </body>
-</html>
-
+  </html>    
