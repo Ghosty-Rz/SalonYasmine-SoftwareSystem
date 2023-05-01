@@ -140,18 +140,22 @@ img {
 
 .card:first-child {
   background-color: #BF0E7E;
+  color: rgba(29, 29, 29, 0.95);
 }
 
 .card:nth-child(2) {
   background-color: #BF0E7E;
+  color: rgba(29, 29, 29, 0.95);
 }
 
 .card:nth-child(3) {
   background-color: #BF0E7E;
+  color: rgba(29, 29, 29, 0.95);
 }
 
 .card:nth-child(4) {
   background-color: #BF0E7E;
+  color: rgba(0, 0, 0, 0.95);
 }
 
 .card-inner {

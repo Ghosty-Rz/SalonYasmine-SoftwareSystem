@@ -98,6 +98,9 @@ body {
       the charts are not showing over the sidebar 
       on small screens
     */
+
+    /*Since the charts weren't showing well we 
+    removed them by commenting that part in the index.html */
     z-index: 12 !important;
   }
   
