@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Suppliers</title>
+
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="CSS/supplierStyles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+  </head>
+  <body>
+    <div class="grid-container">
+
+      <!-- Header -->
+      <header class="header">
+        <div class="menu-icon" onclick="openSidebar()">
+          <span class="material-icons-outlined">menu</span>
+        </div>
+        <div class="header-left">
+          <span class="material-icons-outlined">search</span>
+        </div>
+        <div class="header-right">
+          <span class="material-icons-outlined">notifications</span>
+          <span class="material-icons-outlined">email</span>
+          <span class="material-icons-outlined">account_circle</span>
+        </div>
+      </header>
+      <!-- End Header -->
+
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <!--<span class="material-icons-outlined">face_2</span> -->
+            SALON YASMINE
+            <img src="https://alakhawayn365-my.sharepoint.com/:i:/g/personal/r_zouitni_aui_ma/EQ0ZRSEDJ7lKkys5uaOWCu0BgvL87yIw_d-r46HaC_W2lw?e=3sUBcG" alt="">
+          </div>
+          <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+        </div>
+
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="index.html" >
+              <span class="material-icons-outlined">dashboard</span> Dashboard
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="Services.html">
+              <span class="material-icons-outlined">category</span> Services
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="Appointments.html">
+              <span class="material-icons-outlined">fact_check</span> Appointments
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#" >
+              <span class="material-icons-outlined">groups</span> Customers
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="Employees.html">
+              <span class="material-icons-outlined">group</span> Employees
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#" >
+              <span class="material-icons-outlined">inventory_2</span> Products
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#" >
+              <span class="material-icons-outlined">inventory</span> Suppliers
+            </a>
+          </li>
+          <li class="sidebar-list-item">
+            <a href="#" >
+              <span class="material-icons-outlined">poll</span> Finance
+            </a>
+          </li>
+          
+        </ul>
+      </aside>
+      <!-- End Sidebar -->
+
+      <!-- Main -->
+      <main class="main-container">
+        <div class="main-title">
+          <h2>SUPPLIERS</h2>
+        </div>
+
+        <div class="service-grid">
+          <div class="Services">
+              <div class="card">
+                  <div class="card-header">
+                      <h3>All Suppliers</h3>
+
+                      <!-- Adding A Button -->
+                      <div class="Box">
+                        <a href="#divOne" class="button">Add New</a>
+                      </div>
+
+                      <!-- Creating a pop up form -->
+                      <div class="overlay" id="divOne">
+                        <div class="wrapper">
+                          <h2>New Supplier Form</h2>
+                          <a href="#" class="close">&times;</a>
+                          <div class="content">
+                            <div class="container">
+                              <form id="newServiceForm">
+                                <label>Supplier Name</label>
+                                <input type="text" name="serviceName">
+                                <label>Supplier Description</label>
+                                <textarea></textarea>
+                                <label>Supplier phone number</label>
+                                <input type="number" name="servicePrice">
+                                <label>Supplier location</label>
+                                <input type="text" name="serviceCategory">
+                                
+                                <input type="submit" value="Create">
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                  </div>
+      
+                  <div class="card-body">
+                    <table id="services-table" width="100%">
+                      <thead>
+                        <tr>
+                          <td>Supplier Name</td>
+                          <td>Phone number</td>
+                          <td>View</td>
+                          <td>Edit</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <!-- The services list will be populated dynamically by the JavaScript code -->
+                      </tbody>
+                    </table>
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+      </main>
+      <!-- End Main -->
+
+    </div>
+
+    
+
+    <!-- Custom JS -->
+    <script src="js/Suppliers.js"></script>
+    
+  </body>
+</html>
+
