@@ -80,91 +80,86 @@
           </li>
           <li class="sidebar-list-item">
             <a href="Suppliers.html" >
-              <span class="material-icons-outlined">inventory</span> Suppliers
+            <span class="material-icons-outlined">inventory</span> Suppliers
             </a>
-          </li>
-          <li class="sidebar-list-item">
+            </li>
+            <li class="sidebar-list-item">
             <a href="#" >
-              <span class="material-icons-outlined">poll</span> Finance
+            <span class="material-icons-outlined">poll</span> Finance
             </a>
-          </li>
-          
-        </ul>
-      </aside>
-      <!-- End Sidebar -->
-
-      <!-- Main -->
-      <main class="main-container">
-        <div class="main-title">
-          <h2>Suppliers</h2>
-        </div>
-
-        <div class="service-grid">
-          <div class="Services">
-              <div class="card">
-                  <div class="card-header">
-                      <h3>All Suppliers</h3>
-
-                      <!-- Adding A Button -->
-                      <div class="Box">
-                        <a href="#divOne" class="button">Add New</a>
-                      </div>
-
-                      <!-- Creating a pop up form -->
-                      <div class="overlay" id="divOne">
-                        <div class="wrapper">
-                          <h2>New Supplier Form</h2>
-                          <a href="#" class="close">&times;</a>
-                          <div class="content">
-                            <div class="container">
-                              <form id="newServiceForm">
-                                <label>Supplier Name</label>
-                                <input type="text" name="serviceName">
-                                <label>Supplier Description</label>
-                                <textarea></textarea>
-                                <label>Supplier phone number</label>
-                                <input type="number" name="servicePrice">
-                                <label>Supplier location</label>
-                                <input type="text" name="serviceCategory">
-                                
-                                <input type="submit" value="Create">
-                              </form>
+            </li>
+          </ul>
+        </aside>
+        <!-- End Sidebar -->
+      
+        <!-- Main -->
+        <main class="main-container">
+          <div class="main-title">
+            <h2>Suppliers</h2>
+          </div>
+      
+          <div class="service-grid">
+            <div class="Services">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>All Suppliers</h3>
+      
+                        <!-- Adding A Button -->
+                        <div class="Box">
+                          <a href="#divOne" class="button">Add New</a>
+                        </div>
+      
+                        <!-- Creating a pop up form -->
+                        <div class="overlay" id="divOne">
+                          <div class="wrapper">
+                            <h2>New Supplier Form</h2>
+                            <a href="#" class="close">&times;</a>
+                            <div class="content">
+                              <div class="container">
+                                <form id="newServiceForm" onsubmit="event.preventDefault(); addSupplier();">
+                                  <label>Supplier ID</label>
+                                  <input type="text" id="supplierId" name="supplierId">
+                                  <label>Supplier Name</label>
+                                  <input type="text" id="supplierName" name="supplierName">
+                                  <label>Supplier Status</label>
+                                  <input type="text" id="status" name="status">
+                                  <input type="submit" value="Create">
+                                </form>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      
-                  </div>
+                        
+                    </div>
+        
+                    <div class="card-body">
+                      <table id="services-table" width="100%">
+                        <thead>
+                          <tr>
+                            <td>Supplier ID</td>
+                            <td>Supplier Name</td>
+                            <td>Status</td>
+                            <td>Edit</td>
+                            <td>View</td>
+                          </tr>
+                        </thead>
+                        <tbody id="suppliers-table">
+                          <!-- The suppliers list will be populated dynamically by the JavaScript code -->
+                        </tbody>
+                      </table>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        </main>
+        <!-- End Main -->
       
-                  <div class="card-body">
-                    <table id="services-table" width="100%">
-                      <thead>
-                        <tr>
-                          <td>Supplier Name</td>
-                          <td>Phone number</td>
-                          <td>View</td>
-                          <td>Edit</td>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <!-- The services list will be populated dynamically by the JavaScript code -->
-                      </tbody>
-                    </table>
-                  </div>
-                  
-              </div>
-          </div>
       </div>
-      </main>
-      <!-- End Main -->
-
-    </div>
-
-    
-
-    <!-- Custom JS -->
-    <script src="js/Suppliers.js"></script>
-    
-  </body>
-</html>
-
+      
+      
+      
+      <!-- Custom JS -->
+      <script src="js/suppliers.js"></script>
+    </body>
+    </html>      

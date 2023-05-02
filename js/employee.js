@@ -56,12 +56,10 @@ const firebaseConfig = {
       });
   }
   
-  // Edit an employee in the Realtime Database (replace this function with your desired behavior)
   function editEmployee(id) {
     alert(`Edit employee with ID: ${id}`);
   }
   
-  // View an employee in the Realtime Database (replace this function with your desired behavior)
   function viewEmployee(id) {
     alert(`View employee with ID: ${id}`);
   }
