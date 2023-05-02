@@ -35,8 +35,21 @@ function addSupplierToTable(id, supplier) {
   newRow.insertCell(4).innerHTML = `<button type="button" onclick="viewSupplier('${id}')">View</button>`;
 }
 
+function generateRandomID(length) {
+    let result = '';
+    const characters = '0123456789';
+    const charactersLength = characters.length;
+  
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+  
+    return result;
+  }
+
 function addSupplier() {
-  const id = document.getElementById("supplierId").value;
+  const id = generateRandomID(4);
+  console.log(id); 
   const name = document.getElementById("supplierName").value;
   const status = document.getElementById("status").value;
 

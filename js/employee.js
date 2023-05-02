@@ -36,9 +36,23 @@ const firebaseConfig = {
     newRow.insertCell(4).innerHTML = `<button type="button" onclick="viewEmployee('${id}')">View</button>`;
   }
   
+  function generateRandomID(length) {
+    let result = '';
+    const characters = '0123456789';
+    const charactersLength = characters.length;
+  
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+  
+    return result;
+  }
+
   // Add a new employee to the Realtime Database
   function addEmployee() {
-    const id = document.getElementById("employeeId").value;
+    //const id = document.getElementById("employeeId").value;
+    const id = generateRandomID(4);
+    console.log(id); 
     const name = document.getElementById("employeeName").value;
     const status = document.getElementById("status").value;
   
@@ -63,6 +77,11 @@ const firebaseConfig = {
   function viewEmployee(id) {
     alert(`View employee with ID: ${id}`);
   }
+
+
+  
   
   fetchEmployees();
+  
+
   

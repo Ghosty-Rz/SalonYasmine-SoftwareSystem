@@ -12,9 +12,22 @@ const firebaseConfig = {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
+
+  function generateRandomID(length) {
+    let result = '';
+    const characters = '0123456789';
+    const charactersLength = characters.length;
+  
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+  
+    return result;
+  }
   
 function addAppointment() {
-    const appointmentId = document.getElementById('appointmentId').value;
+    const appointmentId = generateRandomID(4);
+    console.log(id); 
     const customer = document.getElementById('customer').value;
     const date = document.getElementById('date').value;
     const time = document.getElementById('time').value;
