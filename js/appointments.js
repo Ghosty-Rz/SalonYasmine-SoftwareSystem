@@ -27,7 +27,7 @@ const firebaseConfig = {
   
 function addAppointment() {
     const appointmentId = generateRandomID(4);
-    console.log(id); 
+   
     const customer = document.getElementById('customer').value;
     const date = document.getElementById('date').value;
     const time = document.getElementById('time').value;
