@@ -119,8 +119,7 @@
                               <div class="container">
                                 
                                   <form id="newAppointmentForm" onsubmit="event.preventDefault(); addAppointment();">
-                                    <label for="appointmentId">Appointment ID:</label>
-                                    <input type="text" id="appointmentId" required><br>
+                                   
                                     <label for="customer">Customer:</label>
                                     <input type="text" id="customer" required><br>
                                     <label for="date">Date:</label>
@@ -135,6 +134,30 @@
                             </div>
                           </div>
                         </div>
+                              <!-- Edit Appointment Form -->
+<div class="overlay" id="divEdit" style="display: none;">
+  <div class="wrapper">
+    <h2>Edit Appointment Form</h2>
+    <a href="#" class="close" onclick="closeEditForm(event);">&times;</a>
+    <div class="content">
+      <div class="container">
+        
+        <form id="editAppointmentForm" onsubmit="event.preventDefault(); saveEditedAppointment();">
+          <input type="hidden" id="editAppointmentId">
+          <label for="editCustomer">Customer:</label>
+          <input type="text" id="editCustomer" required><br>
+          <label for="editDate">Date:</label>
+          <input type="date" id="editDate" required><br>
+          <label for="editTime">Time:</label>
+          <input type="time" id="editTime" required><br>
+          <label for="editPrice">Price:</label>
+            <input type="number" id="editPrice" required><br>
+            <input type="submit" value="Save">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
                     </div>
                         <div class="card-body">
                           <table width="100%" id="appointments-table">

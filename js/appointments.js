@@ -73,15 +73,44 @@ function addAppointment() {
         const newRow = appointmentsTable.insertRow();
   
         newRow.innerHTML = `
-          <td>${appointment.appointmentId}</td>
-          <td>${appointment.customer}</td>
-          <td>${appointment.date}</td>
-          <td>${appointment.time}</td>
-          <td>${appointment.price}</td>
-          <td><button type="button" onclick="viewAppointment('${appointment.appointmentId}')">View</button></td>
-          <td><button type="button" onclick="editAppointment('${appointment.appointmentId}')">Edit</button></td>
-        `;
+  <td>${appointment.appointmentId}</td>
+  <td>${appointment.customer}</td>
+  <td>${appointment.date}</td>
+  <td>${appointment.time}</td>
+  <td>${appointment.price}</td>
+  <td><button type="button" onclick="deleteAppointment('${appointment.appointmentId}')">Delete</button></td>
+  <td><button type="button" onclick="openEditForm('${appointment.appointmentId}')">Edit</button></td>
+`;
+
+
       }
+    });
+  }
+  function deleteAppointment(appointmentId) {
+    const appointmentRef = database.ref('appointments/' + appointmentId);
+  
+    appointmentRef.remove()
+      .then(() => {
+        alert('Appointment deleted successfully');
+        location.reload();
+      })
+      .catch((error) => {
+        alert('Error deleting appointment:', error);
+      });
+  }
+  function openEditForm(appointmentId) {
+    const appointmentRef = database.ref('appointments/' + appointmentId);
+    appointmentRef.once('value', (snapshot) => {
+      const appointment = snapshot.val();
+  
+      document.getElementById('editAppointmentId').value = appointment.appointmentId;
+      document.getElementById('editCustomer').value = appointment.customer;
+      document.getElementById('editDate').value = appointment.date;
+      document.getElementById('editTime').value = appointment.time;
+      document.getElementById('editPrice').value = appointment.price;
+  
+      const editForm = document.getElementById('divEdit');
+      editForm.style.display = 'block';
     });
   }
   
